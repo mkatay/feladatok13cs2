@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Matek</title>
+    <style>
+        .container{
+            width:320px;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content:space-around;
+            margin:0 auto;
+            height: 300px;
+            border:1px solid rgb(162, 162, 200);
+            box-shadow: 5px 10px 6px rgb(162, 162, 200);
+            padding: 1rem;
+            text-align:center;
+        }
+        h1,button{
+            width: 100%;
+        }
+        button{
+            margin:0 50px 15px 50px;
+            padding:10px;
+            background: linear-gradient(#e66465, #9198e5);
+            color:white;
+            border-radius:15px;
+        }
+        div:not(.container){
+          
+            flex:1;
+            font-size: 2rem;
+            text-align:center;
+            display:flex;
+            align-items: center;
+            
+        }
+        .osszeg{
+            border:1px solid rgb(64, 0, 255);
+            display:flex;
+            align-items: center;
+            
+        }
+        .qmark{
+            width: 100%;
+            color:red;
+            margin:15px 50px 0px 50px;
+            border-radius:15px;
+        }
+        .szam1,.szam2{
+            color:blue;
+        }
+
+        .ok{
+            width: 100%;
+           
+            color:green;
+          
+        }
+       #val{
+            width:50px;
+            font-size: 1.5rem;
+        }
+        .hide{
+            display:none;
+        }
+        .msg{
+          
+            display:flex;
+            justify-content:center;
+            height: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jó vagy fejszámolásban?</h1>
+        <!--<button onclick="generate()">új számokat kérek</button>-->
+        <div class="szam1"></div>
+        <div><i class="fa-regular fa-square-plus"></i></div>
+        <div class="szam2"></div>
+        <div><i class="fa-solid fa-equals"></i></div>
+ 
+        <input type="text" id="val" placeholder="???">
+  
+        
+        
+        <input class="qmark" type="button" value="ellenőrzés" onclick="check()">
+   
+             
+            
+
+       <div class="msg"></div>
+    </div>
+
+    <script>
+       
+
+        const rand=(n)=>Math.floor(Math.random()*n)
+
+        const generate=()=>{
+          
+            document.querySelector('.szam1').innerHTML=rand(100)
+            document.querySelector('.szam2').innerHTML=rand(100)
+            //document.querySelector('input').value=""
+            //document.querySelector('input').disabled=false
+        }
+        generate()
+
+        function check(){
+            console.log(document.querySelector('#val'))
+            let val = document.querySelector('#val').value
+            let szam1=+document.querySelector('.szam1').innerHTML
+            let szam2=+document.querySelector('.szam2').innerHTML
+            
+            if(val==szam1+szam2){
+                console.log('helyes')
+                
+                document.querySelector('.msg').innerHTML='👍'
+                
+            }else{
+                console.log('nem jó')
+                document.querySelector('.msg').innerHTML='❌'
+            }
+                
+        }
+
+
+    </script>
+</body>
+</html>

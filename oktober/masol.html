@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Másol</title>
+</head>
+<body>
+    <form >
+        <textarea  id="eredeti" cols="30" rows="10">
+            The textarea tag defines a multi-line text input control.
+            The textarea element is often used in a form, to collect user inputs like comments or reviews.
+        </textarea>
+        <input type="button" value="másol" onclick="masol()">
+
+        <textarea  id="masolat" cols="30" rows="10"></textarea>
+        <input type="button" value="töröl">
+    </form>
+    
+    <script>
+        function masol(){
+            console.log("masolás következik")
+            //kiolvasás:
+            let szoveg=document.getElementById("eredeti").value
+            console.log(szoveg)
+            //felülírás:
+            document.getElementById("masolat").value=szoveg
+            
+        }
+    </script>
+</body>
+</html>
